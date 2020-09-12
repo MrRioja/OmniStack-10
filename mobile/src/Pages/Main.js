@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { StyleSheet, Image, View, Text, TouchableOpacity } from "react-native";
 import MapView, { Marker, Callout } from "react-native-maps";
 import { MaterialIcons } from "@expo/vector-icons";
+import { TextInput } from "react-native-gesture-handler";
+import api from "../services/api";
+import { connect, disconnect, subscribeToNewDevs } from "../services/socket";
 import {
   requestPermissionsAsync,
   getCurrentPositionAsync,
 } from "expo-location";
-import { TextInput } from "react-native-gesture-handler";
-import api from "../services/api";
-import { connect, disconnect, subscribeToNewDevs } from "../services/socket";
 
 function Main({ navigation }) {
   const [devs, setDevs] = useState([]);
@@ -39,14 +39,13 @@ function Main({ navigation }) {
   }, []);
 
   useEffect(() => {
-    subscribeToNewDevs((dev) => setDevs([...devs, devs]));
+    subscribeToNewDevs((dev) => setDevs([...devs, dev]));
   }, [devs]);
 
   function setupWebsocket() {
     disconnect();
 
     const { latitude, longitude } = currentRegion;
-
     connect(latitude, longitude, techs);
   }
 

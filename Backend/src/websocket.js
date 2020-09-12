@@ -18,8 +18,8 @@ exports.setupWebsocket = (server) => {
       coordinates: {
         latitude: Number(latitude),
         longitude: Number(longitude),
-        techs: parseStringAsArray(techs),
       },
+      techs: parseStringAsArray(techs),
     });
   });
 };

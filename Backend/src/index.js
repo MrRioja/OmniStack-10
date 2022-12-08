@@ -11,10 +11,10 @@ const server = http.Server(app);
 
 setupWebsocket(server);
 
-mongoose.connect(
-  "mongodb+srv://omnistack10:omnistack10@cluster0.zj4el.mongodb.net/omnistack10?retryWrites=true&w=majority",
-  { useUnifiedTopology: true, useNewUrlParser: true }
-);
+mongoose.connect("mongodb://omnistack10:omnistack10@localhost:27017/admin", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 app.use(cors());
 app.use(express.json());

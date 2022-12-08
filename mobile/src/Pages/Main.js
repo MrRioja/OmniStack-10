@@ -5,10 +5,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { TextInput } from "react-native-gesture-handler";
 import api from "../services/api";
 import { connect, disconnect, subscribeToNewDevs } from "../services/socket";
-import {
-  requestPermissionsAsync,
-  getCurrentPositionAsync,
-} from "expo-location";
+import * as Location from "expo-location";
 
 function Main({ navigation }) {
   const [devs, setDevs] = useState([]);
@@ -16,26 +13,24 @@ function Main({ navigation }) {
   const [techs, setTechs] = useState("");
 
   useEffect(() => {
-    async function loadInitialPosition() {
-      const { granted } = await requestPermissionsAsync();
+    (async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
 
-      if (granted) {
-        const { coords } = await getCurrentPositionAsync({
-          enableHighAccuracy: true,
-        });
-
-        const { latitude, longitude } = coords;
-
-        setCurrentRegion({
-          latitude,
-          longitude,
-          latitudeDelta: 0.04,
-          longitudeDelta: 0.04,
-        });
+      if (status !== "granted") {
+        return;
       }
-    }
 
-    loadInitialPosition();
+      let { coords } = await Location.getCurrentPositionAsync({ accuracy: 6 });
+
+      const location = {
+        latitude: coords.latitude,
+        longitude: coords.longitude,
+        latitudeDelta: 0.085,
+        longitudeDelta: 0.085,
+      };
+
+      setCurrentRegion(location);
+    })();
   }, []);
 
   useEffect(() => {
@@ -59,6 +54,7 @@ function Main({ navigation }) {
         techs,
       },
     });
+
     setDevs(response.data.devs);
     setupWebsocket();
   }

@@ -35,7 +35,38 @@ Ocorreu do dia 13 ao dia 17 de Janeiro de 2020 e teve como intuito mostrar na pr
 
 ## Dev Radar
 
-🚧 Em construção 🚧
+O Dev Radar é uma aplicação para buscar desenvolvedores por stack baseado na localização atual do usuário. O proposito é simples: o usuário busca por uma tecnologia e a aplicação irá informar outros devs num raio de 10KM que trabalham com a respectiva tecnologia.
+A aplicação possui duas partes sendo elas a aplicação web e o app mobile, as quais serão mostras e explicadas nos próximos tópicos.
+
+### Aplicação web
+
+A aplicação web tem como função ser a interface de cadastro dos usuários. A interface é simples e possui à esquerda um formulário para preenchimento dos dados e à direita a lista dos usuários já cadastrados, conforme vemos a seguir:
+
+![Dashboard](./readme/web-dashboard.png)
+
+Ao acessar a página será solicitado a permissão para acessar a localização do usuário, sendo ela concedida, automaticamente os dados de latitude e longitude do usuário serão inseridos no formulário.
+
+A seguir temos uma demonstração da página web em funcionamento aonde fazemos o cadastro de um novo desenvolvedor:
+
+![Demo aplicação web](./readme/web-demo.gif)
+
+### Aplicação mobile
+
+O objetivo do app mobile é servir para realizar a busca de devs por tecnologia desejada. Ao acessar o aplicativo, o usuário irá se deparar com a tela abaixo aonde terá um campo para inserir a tecnologia que deseja buscar e um mapa aonde o pin dos devs serão inseridos revelando suas respectivas localizações:
+
+<img src="readme/mobile-search-tech.png" alt="Busca de tech" height="400" />
+
+Ao clicar na marcação de um dev, uma breve descrição dele será exibida, contendo seu nome, bio do Github e as tecnologias com que ele trabalha:
+
+<img src="readme/mobile-dev-detail.png" alt="Detalhes do dev" height="400" />
+
+Ao clicar na biografia do desenvolvedor, o usuário será direcionado para o perfil dele no Github aonde poderá segui-lo, ver seus projetos e explorar outras informações à respeito dele:
+
+<img src="readme/mobile-github-profile.png" alt="Perfil do Github" height="400" />
+
+Abaixo temos uma demonstração do aplicativo em funcionamento:
+
+<img src="./readme/mobile-demo.gif" alt="Demo app" height="700" />
 
 ## Instalação
 

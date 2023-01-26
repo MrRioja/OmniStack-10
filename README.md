@@ -83,7 +83,7 @@ $ git clone git@github.com:MrRioja/OmniStack-10.git
 # Acesse a pasta do projeto no terminal/cmd
 $ cd OmniStack-10
 
-# Vá para a pasta server
+# Vá para a pasta Backend
 $ cd Backend
 
 # Instale as dependências
@@ -108,7 +108,7 @@ $ git clone git@github.com:MrRioja/OmniStack-10.git
 # Acesse a pasta do projeto no terminal/cmd
 $ cd OmniStack-10
 
-# Vá para a pasta server
+# Vá para a pasta web
 $ cd web
 
 # Instale as dependências
@@ -133,7 +133,7 @@ $ git clone git@github.com:MrRioja/OmniStack-10.git
 # Acesse a pasta do projeto no terminal/cmd
 $ cd OmniStack-10
 
-# Vá para a pasta server
+# Vá para a pasta mobile
 $ cd mobile
 
 # Instale as dependências
